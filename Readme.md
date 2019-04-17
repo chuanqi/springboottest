@@ -1,3 +1,3 @@
-# springboot+mybatis example
+# springboot
 
 ## 
