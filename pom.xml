@@ -13,94 +13,48 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
-		<mybatis-spring-boot>1.2.0</mybatis-spring-boot>
 	</properties>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.1.RELEASE</version>
+		<version>2.0.4.RELEASE</version>
 	</parent>
 
 	<dependencies>
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.hibernate</groupId>
-					<artifactId>hibernate-validator</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
+				<configuration>
+					<mainClass>com.xd.App</mainClass><!--springboot启动类目录-->
+				</configuration>
 				<executions>
 					<execution>
-						<id>default-resources</id>
-						<phase>validate</phase>
 						<goals>
-							<goal>copy-resources</goal>
+							<!--创建一个自动可执行的jar或war文件 -->
+							<goal>repackage</goal>
 						</goals>
-						<configuration>
-							<outputDirectory>target/classes</outputDirectory>
-							<useDefaultDelimiters>false</useDefaultDelimiters>
-							<delimiters>
-								<delimiter>@</delimiter>
-							</delimiters>
-							<resources>
-								<resource>
-									<directory>src/main/java</directory>
-									<includes>
-										<include>**/*.xml</include>
-									</includes>
-									<filtering>true</filtering>
-								</resource>
-								<resource>
-									<directory>src/test/java</directory>
-									<includes>
-										<include>**/*.xml</include>
-									</includes>
-									<filtering>true</filtering>
-								</resource>
-								<resource>
-									<directory>src/main/resources</directory>
-									<includes>
-										<include>**/*.xml</include>
-										<include>**/*.properties</include>
-										<include>**/*.yml</include>
-									</includes>
-									<filtering>true</filtering>
-								</resource>
-							</resources>
-						</configuration>
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
+
 
 	<repositories>
 		<repository>

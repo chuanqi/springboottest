@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Time: 19:53
  */
 @RestController
-public class TestController {
+public class HelloWorldController {
     Logger logger = LoggerFactory.getLogger(App.class);
 
     @RequestMapping("/")
@@ -23,8 +23,9 @@ public class TestController {
         return "Hello World!";
     }
 
-    @RequestMapping("/a")
+    @RequestMapping("/hello")
     public String a() {
+        //        org.hibernate.validator.internal.engine.DefaultClockProvider
         return "Hello a!";
     }
 
