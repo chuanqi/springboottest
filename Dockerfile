@@ -1,12 +1,11 @@
 FROM springcloudenv:v1
 
-MAINTAINER by xuda
+MAINTAINER "chuanqi"<chuanqi@outlook.com>
 
-RUN mkdir -p /data/k8s/springboottest
+RUN mkdir -p /data/k8s/service
 
-WORKDIR /data/k8s/springboottest
+WORKDIR /data/k8s/service
 
-COPY target/springboottest-0.0.1-SNAPSHOT.jar ./springboottest.jar
+COPY target/springboottest-0.0.1-SNAPSHOT.jar ./docker-boot-test.jar
 
-CMD java -jar springboottest.jar
-
+CMD java -jar -Dfile.encoding=UTF-8 docker-boot-test.jar
